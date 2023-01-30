@@ -31,7 +31,7 @@ RegisterNetEvent('sl-gopostal:server:givebox', function()
     local Player = QBCore.Functions.GetPlayer(src)
 
     if Player.PlayerData.job.name == Config.JobName then
-        Player.Functions.AddItem("box", 10, false)
+        Player.Functions.AddItem(Config.PackageItem, Config.PackageItemAmount, false)
         TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[Config.PackageItem], "add")
     else
         TriggerEvent('qb-log:server:CreateLog', 'anticheat', 'sl-gopostal', 'red', '**FiveM Identifier**: `'..GetPlayerName(src) .. '` \n**Character Name**: `'..Player.PlayerData.charinfo.firstname .. ' ' .. Player.PlayerData.charinfo.lastname ..'`\n**CSN**: `'..Player.PlayerData.citizenid..'`\n**ID**: `'..src..'`\n**License**: `'..Player.PlayerData.license.."`\n\n **Detection of an event being triggered for attempting to add `"..Config.PackageItem.."` to their inventory without having the `"..Config.JobName.."` job **", true)
@@ -44,7 +44,7 @@ RegisterNetEvent('sl-gopostal:server:removebox', function()
     local Player = QBCore.Functions.GetPlayer(src)
 
     if Player.PlayerData.job.name == Config.JobName then
-        Player.Functions.RemoveItem("box", 1, false)
+        Player.Functions.RemoveItem(Config.PackageItem, 1, false)
         TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[Config.PackageItem], "remove")
     else
         TriggerEvent('qb-log:server:CreateLog', 'anticheat', 'sl-gopostal', 'red', '**FiveM Identifier**: `'..GetPlayerName(src) .. '` \n**Character Name**: `'..Player.PlayerData.charinfo.firstname .. ' ' .. Player.PlayerData.charinfo.lastname ..'`\n**CSN**: `'..Player.PlayerData.citizenid..'`\n**ID**: `'..src..'`\n**License**: `'..Player.PlayerData.license.."`\n\n **Detection of an event being triggered for attempting to remove `"..Config.PackageItem.."` from their inventory without having the `"..Config.JobName.."` job **", true)
