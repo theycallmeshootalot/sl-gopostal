@@ -39,7 +39,7 @@ AddEventHandler('onResourceStop', function(resourceName)
         RemoveBlip(blip)
         exports['qb-radialmenu']:RemoveOption(radialmenu)
         exports['qb-radialmenu']:RemoveOption(radialmenued)
-        exports['qb-target']:RemoveZone("electricboxes")
+        exports['qb-target']:RemoveZone("houses")
 	end 
 end)
 
